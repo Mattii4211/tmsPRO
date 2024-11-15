@@ -8,8 +8,8 @@ if (isset($_GET['getCountForYear'])) {
     $year = filter_var($_GET['getCountForYear'], FILTER_VALIDATE_INT);
     echo json_encode([
         'data' => rand(
-                1,
-                $year ? $year : 10000 
+                -1000,
+                $year ?: 10000 
                 )
         ]
     );

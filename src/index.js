@@ -14,18 +14,20 @@ function addDataToChart() {
 async function getData(year) {
     let data;
     const url = `${exampleApiUrl}?getCountForYear=${year}`;
+    
     try {
         const response = await fetch(url);
         const result = await response.json();
         data = result.data;
-      } catch (error) {
+    } catch (error) {
         data = Math.floor(Math.random() * year);
-      }
+    }
     
     return data;
 }
 
 function addData(chart, newData) {
+    // to do order list ...
     if (!chart.data.labels.includes(newData.year)) {
         chart.data.labels.push(newData.year);
         chart.data.datasets.forEach((dataset) => {
